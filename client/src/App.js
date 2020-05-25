@@ -1,13 +1,44 @@
-import React, { Component } from 'react'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+import {BrowserRouter,Route} from 'react-router-dom';
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                Hello from "/src/App.js"!
-            </div>
-        )
-    }
+import Home from './components/screens/Home';
+import Profile from './components/screens/Profile';
+import Login from './components/screens/Login';
+import Signup from './components/screens/Signup';
+
+import Navigation from './components/Navbar';
+
+function App() {
+
+    
+    
+    return (
+        <BrowserRouter>
+            <Navigation />
+            <Route exact path="/">
+                <Container>
+                    <Home />
+                </Container>
+            </Route>
+            <Route path="/login">
+                <Container>
+                    <Login />
+                </Container>
+            </Route>
+            <Route path="/profile">
+                <Container>
+                    <Profile />
+                </Container>
+            </Route>
+            <Route path="/signup">
+                <Container>
+                    <Signup />
+                </Container>
+            </Route>
+        </BrowserRouter>
+    )
 }
 
 export default App;
