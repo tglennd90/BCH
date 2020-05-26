@@ -9,7 +9,7 @@ const Home = () => {
                     <Card.Header>User Name</Card.Header>
                     <Card.Body>
                         <Card.Img style={{height:"300px"}} variant="top" src="https://www.pixelstalk.net/wp-content/uploads/2016/04/Earth-backgrounds-free-download.jpg" />
-                        <i class="fas fa-heart fa-3x"></i>
+                        <i className="fas fa-heart fa-3x"></i>
                         <Card.Title>Post Title</Card.Title>
                         <Card.Text>
                             Post Body

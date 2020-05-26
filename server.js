@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const colors = require('colors');
+const cors = require('cors');
 const cbr = console.log(' ');
 require('dotenv').config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 const {MONGOURI} = require('./config/keys');
 
 mongoose.connect(MONGOURI, {
@@ -25,6 +26,8 @@ require('./models/user');
 require('./models/post');
 
 app.use(express.json());
+app.use(cors());
+
 app.use(require('./routes/auth'));
 app.use(require('./routes/post'));
 

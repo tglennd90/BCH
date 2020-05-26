@@ -12,13 +12,13 @@ router.post('/signup', (req,res) => {
     const {name,email,password} = req.body;
 
     if (!email || !password || !name) {
-       return res.status(422).json({Error: "Please complete all fields"})
+       return res.status(422).json({error: "Please complete all fields"})
     }
 
     User.findOne({email:email})
         .then((savedUser) => {
             if(savedUser) {
-                return res.status(422).json({Error: "User already exists with that Email"})
+                return res.status(422).json({error: "User already exists with that Email"})
             }
 
             bcrypt.hash(password,12)
@@ -31,7 +31,7 @@ router.post('/signup', (req,res) => {
 
                     user.save()
                         .then(user => {
-                            res.json({ message: "Saved Successfully" })
+                            res.json({ message: "Registration Successful" })
                         })
                         .catch(err => {
                             console.log(err)
@@ -62,8 +62,9 @@ router.post('/signin', (req,res) => {
                         // res.json({message:"Successfully Logged In"})
 
                         const token = jwt.sign({_id:savedUser._id},JWT_SECRET);
+                        const {_id,name,email} = savedUser
 
-                        res.json({token})
+                        res.json({token,user:{_id,name,email}})
                     } else {
                         return res.status(422).json({error: "Invalid Email or Password"})
                     }

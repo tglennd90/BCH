@@ -20,7 +20,7 @@ const CreatePost = () => {
                                 <Form.File.Input />
                             </Form.File>
                         </div>
-                        <Button type="submit">
+                        <Button>
                                 Submit Post
                         </Button>
                     </Form>
