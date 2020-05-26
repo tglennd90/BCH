@@ -7,6 +7,7 @@ import Home from './components/screens/Home';
 import Profile from './components/screens/Profile';
 import Login from './components/screens/Login';
 import Signup from './components/screens/Signup';
+import CreatePost from './components/screens/CreatePost';
 
 import Navigation from './components/Navbar';
 
@@ -35,6 +36,11 @@ function App() {
             <Route path="/signup">
                 <Container>
                     <Signup />
+                </Container>
+            </Route>
+            <Route path="/createpost">
+                <Container>
+                    <CreatePost />
                 </Container>
             </Route>
         </BrowserRouter>
