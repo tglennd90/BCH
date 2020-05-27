@@ -105,6 +105,45 @@ const Home = () => {
         .catch(err=>{console.log(err)})
     }
 
+    const deletePost = (postId) => {
+        fetch(`/deletepost/${postId}`, {
+            method: "delete",
+            headers: {
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            }
+        })
+        .then(res=>res.json())
+        .then(result => {
+            console.log(result)
+
+            const newData = data.filter(item => {
+                return item._id !== result._id
+            })
+
+            setData(newData)
+        })
+        .catch(err=>{console.log(err)})
+    }
+
+    // const deleteComment = (commentId) => {
+    //     fetch(`/deletecomment/${commentId}`, {
+    //         method: "delete",
+    //         headers: {
+    //             "Authorization":"Bearer "+localStorage.getItem("jwt")
+    //         }
+    //     })
+    //     .then(res=>res.json())
+    //     .then(result => {
+
+    //         const newData = data.filter(item => {
+    //             return item._id !== result._id
+    //         })
+
+    //         setData(newData)
+    //     })
+    //     .catch(err=>{console.log(err)})
+    // }
+    
     return (
         <div className="homePage">
             {
@@ -112,7 +151,10 @@ const Home = () => {
                     return(
                         <Container key={item._id}>
                             <Card>
-                                <Card.Header>{item.postedBy.name}</Card.Header>
+                                <Card.Header>
+                                    {item.postedBy.name}
+                                    {item.postedBy._id == state._id && <i className="fas fa-trash-alt fa-lg" style={{float:"right"}} onClick={()=>deletePost(item._id)}></i>}
+                                </Card.Header>
                                 <Card.Body>
                                     <Card.Img src={item.photo} />
                                     <i className="fas fa-heart fa-3x"></i>
@@ -128,7 +170,11 @@ const Home = () => {
                                         {
                                             item.comments.map(record=>{
                                                 return(
-                                                    <h6 key={record._id}><span>{record.postedBy.name}:</span> {record.text}</h6>
+                                                    <div key={record._id}>
+                                                    <h6><span>{record.postedBy.name}:</span> {record.text}</h6>
+                                                    {/* {record.postedBy._id == state._id && <i className="fas fa-trash-alt fa-lg" 
+                                                    onClick={()=>deleteComment(record._id)}></i>} */}
+                                                    </div>
                                                 )
                                             })
                                         }
