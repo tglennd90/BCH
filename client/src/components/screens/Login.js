@@ -17,7 +17,7 @@ const Login = () => {
             return
         }
 
-        fetch("http://localhost:8080/signin", {
+        fetch("/signin", {
             method:"post",
             headers:{
                 "Content-Type":"application/json"
@@ -33,6 +33,8 @@ const Login = () => {
             if (data.error) {
                 M.toast({html: data.error, classes: 'red'})
             } else {
+                localStorage.setItem("jwt",data.token)
+                localStorage.setItem("user",JSON.stringify(data.user))
                 M.toast({html:"Logged In!", classes: 'green'})
                 history.push('/')
             }
