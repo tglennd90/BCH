@@ -31,7 +31,7 @@ const Navigation = () => {
 
     return(
         <Navbar collapseOnSelect expand="lg" sticky="top">
-            <Link to={state?"/":"/login"}>BootCamp Hub</Link>
+            <Link to={state?"/":"/login"}>InstaCram</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <div>
