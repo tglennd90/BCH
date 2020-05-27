@@ -76,6 +76,35 @@ const Home = () => {
         })
     }
 
+    const makeComment = (text,postId) => {
+        fetch('/comment',{
+            method: "put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                postId,
+                text
+            })
+        })
+        .then(res=>res.json())
+        .then(result => {
+            console.log(result)
+
+            const newData = data.map(item => {
+                if(item._id==result._id) {
+                    return result
+                } else {
+                    return item
+                }
+            })
+            
+            setData(newData)
+        })
+        .catch(err=>{console.log(err)})
+    }
+
     return (
         <div className="homePage">
             {
@@ -96,8 +125,18 @@ const Home = () => {
                                         {item.title}
                                         <br></br>
                                         {item.body}
+                                        {
+                                            item.comments.map(record=>{
+                                                return(
+                                                    <h6 key={record._id}><span>{record.postedBy.name}:</span> {record.text}</h6>
+                                                )
+                                            })
+                                        }
                                     </Card.Text>
-                                    <Form>
+                                    <Form onSubmit={(e)=>{
+                                            e.preventDefault()
+                                            makeComment(e.target[0].value,item._id)    
+                                    }}>
                                         <Form.Group controlId="formBasicText">
                                             <Form.Label>Comment Here</Form.Label>
                                             <Form.Control type="text" />
