@@ -40,7 +40,7 @@ const Login = () => {
                 localStorage.setItem("user",JSON.stringify(data.user))
                 dispatch({type:"USER",payload:data.user})
                 M.toast({html:"Logged In!", classes: 'green'})
-                history.push('/')
+                history.push('/profile')
             }
         })
         .catch(err => {
