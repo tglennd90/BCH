@@ -30,7 +30,7 @@ router.post('/createpost', requireLogin, (req,res) => {
 });
 
 // All Posts
-router.get('/allposts', (req,res) => {
+router.get('/allposts', requireLogin, (req,res) => {
     Post.find()
         .populate("postedBy","_id name")
         .then(posts => {
