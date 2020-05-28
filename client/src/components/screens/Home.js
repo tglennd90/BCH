@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../App'
 import { Container, Card, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -152,7 +153,7 @@ const Home = () => {
                         <Container key={item._id}>
                             <Card>
                                 <Card.Header>
-                                    {item.postedBy.name}
+                                    <Link to={item.postedBy._id !== state.id ? "/profile/"+item.postedBy._id : "/profile" }>{item.postedBy.name}</Link>
                                     {item.postedBy._id == state._id && <i className="fas fa-trash-alt fa-lg" style={{float:"right"}} onClick={()=>deletePost(item._id)}></i>}
                                 </Card.Header>
                                 <Card.Body>

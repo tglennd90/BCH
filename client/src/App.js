@@ -9,6 +9,7 @@ import Login from './components/screens/Login';
 import Signup from './components/screens/Signup';
 import CreatePost from './components/screens/CreatePost';
 import Navigation from './components/Navbar';
+import UserProfile from './components/screens/UserProfile'
 import { reducer, initialState } from './reducers/userReducer'
 
 export const UserContext = createContext()
@@ -22,10 +23,12 @@ const Routing = () => {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"))
-
+        console.log(user)
         if(user) {
             dispatch({type:"USER",payload:user})
-            history.push('/')
+            // history.push('/')
+
+            
         } else {
             history.push('/login')
         }
@@ -43,7 +46,7 @@ const Routing = () => {
                     <Login />
                 </Container>
             </Route>
-            <Route path="/profile">
+            <Route exact path="/profile">
                 <Container>
                     <Profile />
                 </Container>
@@ -56,6 +59,11 @@ const Routing = () => {
             <Route path="/createpost">
                 <Container>
                     <CreatePost />
+                </Container>
+            </Route>
+            <Route path="/profile/:userid">
+                <Container>
+                    <UserProfile />
                 </Container>
             </Route>
         </Switch>

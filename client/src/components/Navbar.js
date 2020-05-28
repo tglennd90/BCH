@@ -11,9 +11,9 @@ const Navigation = () => {
     const renderList = () => {
         if(state) {
             return [
-                <Link to="/profile">Profile</Link>,
-                <Link to="/createpost">Create Post</Link>,
-                <Button onClick={()=>{
+                <Link to="/profile" key="3">Profile</Link>,
+                <Link to="/createpost" key="4">Create Post</Link>,
+                <Button key="5" onClick={()=>{
                     localStorage.clear()
                     dispatch({type:"CLEAR"})
                     history.push('/login')
@@ -23,8 +23,8 @@ const Navigation = () => {
             ]
         } else {
             return [
-                <Link to="/login">Login</Link>,
-                <Link to="/signup">Register</Link>
+                <Link to="/login" key="1">Login</Link>,
+                <Link to="/signup" key="2">Register</Link>
             ]
         }
     }
