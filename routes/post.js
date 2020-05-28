@@ -61,6 +61,18 @@ router.get('/allposts', requireLogin, (req,res) => {
         })
 });
 
+// Get Posts of users that you Follow
+router.get('/getfollowedposts', requireLogin, (req,res) => {
+    Post.find({postedBy:{$in:req.user.following}})
+    .populate("postedBy","_id name")
+    .populate("comments.postedBy","_id name")
+    // .sort('-createdAt')
+    .then(posts=>{
+        res.json({posts})
+    })
+    .catch(err=>{console.log(err)})
+});
+
 // All Posts of Current User
 router.get('/myposts', requireLogin, (req,res) => {
     Post.find({postedBy:req.user._id})
