@@ -2,10 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../App';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Profile = () => {
 
     const [userProfile,setProfile] = useState(null)
+    const [showfollow,setShowFollow] = useState(true)
 
     const {state,dispatch} = useContext(UserContext)
 
@@ -23,6 +25,81 @@ const Profile = () => {
             setProfile(result)
         })
     }, [])
+
+    const followUser = () => {
+        fetch('/follow',{
+            method: "put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                followId:`${userid}`
+            })
+        })
+        .then(res=>res.json())
+        .then(data => {
+            // console.log(data)
+            dispatch({type:"UPDATE",payload:{
+                following:data.following,
+                followers:data.followers
+            }})
+
+            localStorage.setItem("user",JSON.stringify(data))
+
+            setProfile((prevState) => {
+                return {
+                    ...prevState,
+                    user:{
+                        ...prevState.user,
+                        followers:[
+                            ...prevState.user.followers,data._id
+                        ]
+                    }
+                }
+            })
+
+            setShowFollow(false)
+        })
+    }
+
+    const unfollowUser = () => {
+        fetch('/unfollow',{
+            method: "put",
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            },
+            body:JSON.stringify({
+                unfollowId:userid
+            })
+        })
+        .then(res=>res.json())
+        .then(data => {
+            // console.log(data)
+            dispatch({type:"UPDATE",payload:{
+                following:data.following,
+                followers:data.followers
+            }})
+
+            localStorage.setItem("user",JSON.stringify(data))
+
+            setProfile((prevState) => {
+
+                const newFollower = prevState.user.followers.filter(item => item != data._id)
+
+                return {
+                    ...prevState,
+                    user:{
+                        ...prevState.user,
+                        followers:newFollower
+                    }
+                }
+            })
+
+            setShowFollow(true)
+        })
+    }
 
     return (
         <>
@@ -42,9 +119,22 @@ const Profile = () => {
                     <h5>{userProfile.user.email}</h5>
                     <div style={{display:"flex",justifyContent:"space-between",width:"115%"}}>
                         <h6>{userProfile.posts.length} Posts</h6>
-                        <h6>Followers</h6>
-                        <h6>Following</h6>
+                        <h6>{userProfile.user.followers.length} Followers</h6>
+                        <h6>Following {userProfile.user.following.length}</h6>
                     </div>
+                    {
+                        showfollow 
+                        ?
+                        <Button onClick={()=>followUser()}>
+                            Follow
+                        </Button>
+                        :
+                        <Button onClick={()=>unfollowUser()}>
+                            Un-Follow
+                        </Button>
+                    }
+                    
+                    
                 </div>
             </div>
         
