@@ -23,7 +23,7 @@ router.get('/user/:id', requireLogin, (req,res) => {
         .catch(err=>{return res.status(404).json({error:"User not found"})})
 });
 
-// Followers
+// Follow
 router.put('/follow', requireLogin, (req,res) => {
     User.findByIdAndUpdate(req.body.followId, {
         $push:{followers:req.user._id}    
@@ -73,6 +73,20 @@ router.put('/unfollow', requireLogin, (req,res) => {
             return res.status(422).json({error:err})
         })
     })
+});
+
+// Update Profile Photo
+router.put('/updatephoto', requireLogin, (req,res) => {
+    User.findByIdAndUpdate(req.user._id, 
+        {$set:{photo:req.body.photo}}, 
+        {new: true},
+        (err,result) => {
+            if(err){
+                return res.status(422).json({error:"Photo cannot post"})
+            }
+
+            res.json(result)
+        })
 });
 
 module.exports = router;

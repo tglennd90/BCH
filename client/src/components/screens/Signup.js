@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import M from 'materialize-css';
@@ -9,8 +9,32 @@ const Signup = () => {
     const [name,setName] = useState("")
     const [password,setPassword] = useState("")
     const [email,setEmail] = useState("")
-    
-    const PostData = () => {
+    const [image,setImage] = useState("")
+    const [url,setUrl] = useState(undefined)
+
+    useEffect(() => {
+        if(url) {
+            uploadFields()
+        }
+    },[url])
+
+    const uploadPic = () => {
+        const data = new FormData()
+
+        data.append("file",image)
+        data.append("upload_preset","sm-clone")
+        data.append("cloud_name","tgdcloud9019")
+
+        fetch("https://api.cloudinary.com/v1_1/tgdcloud9019/image/upload", {
+            method: "post",
+            body: data
+        })
+        .then(res=>res.json())
+        .then(data=>setUrl(data.url))
+        .catch(err=>{console.log(err)})
+    }
+
+    const uploadFields = () => {
 
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
             M.toast({html: "Invalid Email", classes: 'red'})
@@ -25,7 +49,8 @@ const Signup = () => {
             body:JSON.stringify({
                 name,
                 password,
-                email
+                email,
+                photo:url
             })
         })
         .then(res=>res.json())
@@ -40,6 +65,16 @@ const Signup = () => {
         .catch(err => {
             console.log(err)
         })
+    }
+    
+    const PostData = () => {
+
+        if (image) {
+            uploadPic()
+        } else {
+            uploadFields()
+        }
+
     }
 
     return (
@@ -62,6 +97,13 @@ const Signup = () => {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
+                            <div className="mb-3">
+                                <Form.File id="formcheck-api-regular">
+                                    <Form.File.Label>Upload Picture</Form.File.Label>
+                                    <Form.File.Input type="file" 
+                                        onChange={(e)=>setImage(e.target.files[0])}/>
+                                </Form.File>
+                            </div>
                             <Button onClick={()=>PostData()}>
                                 Sign-Up
                             </Button>

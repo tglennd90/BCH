@@ -7,11 +7,12 @@ import { Button } from 'react-bootstrap';
 const UserProfile = () => {
 
     const [userProfile,setProfile] = useState(null)
-    const [showfollow,setShowFollow] = useState(true)
 
     const {state,dispatch} = useContext(UserContext)
 
     const {userid} = useParams()
+
+    const [showfollow,setShowFollow] = useState(state ? !state.following.includes(userid) : true)
 
     useEffect(() => {
         
@@ -109,7 +110,7 @@ const UserProfile = () => {
             <div className="personalArea"
                  style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid black"}}>
                 <div className="profilePic">
-                    <img src="https://media.gettyimages.com/photos/handsome-black-man-with-a-bald-head-on-a-white-background-picture-id468465470?b=1&k=6&m=468465470&s=612x612&w=0&h=cx2AnEU362_ZC-kfsqqzCyCMrhzgIc1VlajqHQkAZrg="
+                    <img src={userProfile.user.photo}
                          alt="profilePic" 
                          style={{width:"205px",height:"145px",borderRadius:"50%"}}
                     />
