@@ -13,6 +13,7 @@ const Navigation = () => {
             return [
                 <Link to="/profile" key="3">Profile</Link>,
                 <Link to="/createpost" key="4">Create Post</Link>,
+                <Link to="/followedusersposts" key="6">Following</Link>,
                 <Button key="5" onClick={()=>{
                     localStorage.clear()
                     dispatch({type:"CLEAR"})

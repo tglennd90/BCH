@@ -2,6 +2,7 @@ import React, { useEffect, createContext, useReducer, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+import { reducer, initialState } from './reducers/userReducer';
 
 import Home from './components/screens/Home';
 import Profile from './components/screens/Profile';
@@ -9,12 +10,10 @@ import Login from './components/screens/Login';
 import Signup from './components/screens/Signup';
 import CreatePost from './components/screens/CreatePost';
 import Navigation from './components/Navbar';
-import UserProfile from './components/screens/UserProfile'
-import { reducer, initialState } from './reducers/userReducer'
+import UserProfile from './components/screens/UserProfile';
+import FollowedHome from './components/screens/FollowedUserPosts';
 
 export const UserContext = createContext()
-
-
 
 const Routing = () => {
 
@@ -28,7 +27,7 @@ const Routing = () => {
             dispatch({type:"USER",payload:user})
             // history.push('/')
 
-            
+
         } else {
             history.push('/login')
         }
@@ -64,6 +63,11 @@ const Routing = () => {
             <Route path="/profile/:userid">
                 <Container>
                     <UserProfile />
+                </Container>
+            </Route>
+            <Route path="/followedusersposts">
+                <Container>
+                    <FollowedHome />
                 </Container>
             </Route>
         </Switch>

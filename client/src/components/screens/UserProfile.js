@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-const Profile = () => {
+const UserProfile = () => {
 
     const [userProfile,setProfile] = useState(null)
     const [showfollow,setShowFollow] = useState(true)
@@ -162,4 +162,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+export default UserProfile;

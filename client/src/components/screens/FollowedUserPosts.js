@@ -3,7 +3,7 @@ import { UserContext } from '../../App'
 import { Container, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const FollowedHome = () => {
 
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
@@ -200,4 +200,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default FollowedHome;
