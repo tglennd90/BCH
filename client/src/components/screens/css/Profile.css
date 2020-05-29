@@ -1,0 +1,36 @@
+:root {
+    --navy: #06304b;
+    --gold: #ffce3f; 
+}
+
+.personalArea {
+    background-color: var(--navy);
+    border: 5px solid var(--gold);
+    padding: 2%;
+    color: var(--gold);
+}
+
+.profileName h4 {
+    font-style: italic;
+}
+
+.profilePic img {
+    width: 205px;
+    height: 165px;
+    border-radius: 50%;
+    border: 5px solid var(--gold);
+    margin-bottom: 2%;
+    transform: scale(1.1);
+}
+
+.galleryArea img {
+    width: 155px;
+    height: 115px;
+    border: 2.5px solid var(--gold);
+    margin-bottom: 2%;
+    transform: scale(1.1);
+}
+
+.profileStats h6 {
+    font-size: large;
+}

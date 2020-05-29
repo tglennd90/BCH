@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import M from 'materialize-css';
+import './css/CreatePost.css';
 
 const CreatePost = () => {
 
@@ -62,26 +63,31 @@ const CreatePost = () => {
     return (
         <div>
             <Container>
-                <Card>
+                <div className="pageTitle">
+                    <h1>Create a Post!</h1>
+                </div>
+                <Card className="mainCard">
                     <Container>
                     <Form>
-                        <Form.Group>
-                            <Form.Control type="text" size="lg" placeholder="Title"
+                        <Form.Group style={{marginBottom:"3%"}}>
+                        <Form.Label className="labelTitle" style={{transform:"translateY(80px)"}}>Title</Form.Label>
+                            <Form.Control type="text" size="lg" style={{backgroundColor:"#06304b",border:"none",borderBottom:"2px solid #ffce3f",color:"#ffce3f"}}
                                 value={title} onChange={(e)=>setTitle(e.target.value)} />
                         </Form.Group>
-                        <Form.Group>
-                            <Form.Control as="textarea" rows="3" placeholder="Body"
+                        <Form.Group style={{marginBottom:"3%"}} >
+                        <Form.Label style={{transform:"translateY(112px"}}>Details</Form.Label>
+                            <Form.Control  style={{backgroundColor:"#06304b",border:"none",borderBottom:"2px solid #ffce3f",color:"#ffce3f",resize:"none"}} as="textarea" rows="3"
                                 value={body} onChange={(e)=>setBody(e.target.value)} />
                         </Form.Group>
-                        <div className="mb-3">
+                        <div className="mb-3" style={{marginTop:"7%"}}>
                             <Form.File id="formcheck-api-regular">
                                 <Form.File.Label>Image</Form.File.Label>
                                 <Form.File.Input type="file" 
                                     onChange={(e)=>setImage(e.target.files[0])}/>
                             </Form.File>
                         </div>
-                        <Button onClick={()=>postDetails()}>
-                                Submit Post
+                        <Button style={{marginTop:"-5%"}} onClick={()=>postDetails()}>
+                                Post!
                         </Button>
                     </Form>
                     </Container>

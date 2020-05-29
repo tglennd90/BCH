@@ -1,0 +1,44 @@
+:root {
+    --navy: #06304b;
+    --gold: #ffce3f; 
+}
+
+.navBar {
+    background-color: var(--navy);
+    position: relative;
+    border-bottom: 5px solid var(--gold);
+}
+
+.navBar a {
+    color: var(--gold);
+    margin-right: 25px;
+}
+
+.navLogo {
+    font-size: xx-large;
+    position: absolute;
+    left: 5%;
+    font-family: 'Great Vibes', cursive;
+}
+
+.navList {
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+    font-size: medium;
+}
+
+.navBtn {
+    background-color: var(--navy);
+    border: 1.5px solid var(--gold);
+    text-transform: inherit;
+    float: right;
+    margin-top: 4%;
+    color: var(--gold);
+}
+
+.navBtn:hover {
+    background-color: var(--gold);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+}

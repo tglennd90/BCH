@@ -1,0 +1,20 @@
+:root {
+    --navy: #06304b;
+    --gold: #ffce3f; 
+}
+
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    /* background-image: url(./graywall.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+
+    /* background: rgb(5,250,123);
+    background: linear-gradient(90deg, rgba(5,250,123,1) 0%, rgba(6,48,75,1) 20%, rgba(5,250,123,1) 40%, rgba(6,48,75,1) 60%, rgba(5,250,123,1) 80%, rgba(6,48,75,1) 100%); */
+
+    background: rgb(61,237,151);
+    background: linear-gradient(90deg, rgba(61,237,151,1) 25%, rgba(6,48,75,1) 50%, rgba(61,237,151,1) 75%);
+}

@@ -13,6 +13,8 @@ import Navigation from './components/Navbar';
 import UserProfile from './components/screens/UserProfile';
 import FollowedHome from './components/screens/FollowedUserPosts';
 
+import './App.css'
+
 export const UserContext = createContext()
 
 const Routing = () => {

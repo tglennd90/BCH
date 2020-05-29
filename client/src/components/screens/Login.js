@@ -3,6 +3,7 @@ import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App'
 import M from 'materialize-css';
+import './css/Login.css';
 
 const Login = () => {
 
@@ -50,26 +51,25 @@ const Login = () => {
 
     return (
         <Container>
-            <Card>
+            <Card className="mainCard">
                 <Card.Body>
-                    <Card.Title>BootCamp Hub</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Login</Card.Subtitle>
+                    <Card.Title style={{color:"#ffce3f",marginBottom:"1%",float:"right"}}><h4>InstaCram Login</h4></Card.Title>
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(90px"}}>Email address</Form.Label>
+                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
+                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
                             <Button onClick={()=>PostData()}>
                                 Log-In
                             </Button>
                         </Form>
                     </Card.Text>
-                    <h5>
+                    <h5 className="alt">
                         <Link to="/signup">Don't have an account yet?</Link>
                     </h5>
                     {/* <Card.Link href="#">Card Link</Card.Link> */}

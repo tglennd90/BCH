@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../App'
+import './Navbar.css'
 
 const Navigation = () => {
 
@@ -14,7 +15,7 @@ const Navigation = () => {
                 <Link to="/profile" key="3">Profile</Link>,
                 <Link to="/createpost" key="4">Create Post</Link>,
                 <Link to="/followedusersposts" key="6">Following</Link>,
-                <Button key="5" onClick={()=>{
+                <Button className="navBtn" key="5" onClick={()=>{
                     localStorage.clear()
                     dispatch({type:"CLEAR"})
                     history.push('/login')
@@ -31,11 +32,11 @@ const Navigation = () => {
     }
 
     return(
-        <Navbar collapseOnSelect expand="lg" sticky="top">
-            <Link to={state?"/":"/login"}>InstaCram</Link>
+        <Navbar collapseOnSelect expand="lg" sticky="top" className="navBar">
+            <Link className="navLogo" to={state?"/":"/login"}>InstaCram</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <div>
+                <div className="navList">
                     {renderList()}
                 </div>
             </Navbar.Collapse>

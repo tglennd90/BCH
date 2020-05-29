@@ -1,0 +1,45 @@
+:root {
+    --navy: #06304b;
+    --gold: #ffce3f;
+}
+
+.mainCard {
+    background-color: var(--navy);
+    border: 5px solid var(--gold);
+    padding: 2%;
+    margin-top: 5%;
+}
+
+.mainCard Button {
+    background-color: var(--navy);
+    border: 1.5px solid var(--gold);
+    text-transform: inherit;
+    float: right;
+    margin-top: 5%;
+    color: var(--gold);
+}
+
+.mainCard Button:hover {
+    background-color: var(--gold);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+}
+
+Form {
+    color: var(--gold);
+}
+
+Form Label {
+    color: var(--gold);
+    font-size: medium;
+}
+
+.alt {
+    margin-top: 7%;
+    margin-left: 25%;
+}
+
+.alt a {
+    text-decoration: none;
+    color: var(--gold);
+}

@@ -1,0 +1,43 @@
+:root {
+    --navy: #06304b;
+    --gold: #ffce3f; 
+}
+
+.mainCard {
+    background-color: var(--navy);
+    border: 5px solid var(--gold);
+    padding: 2%;
+    margin-top: 5%;
+}
+
+.mainCard Button {
+    background-color: var(--navy);
+    border: 1.5px solid var(--gold);
+    text-transform: inherit;
+    float: right;
+    color: var(--gold);
+}
+
+.mainCard Button:hover {
+    background-color: var(--gold);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+}
+
+Form {
+    color: var(--gold);
+}
+
+Form Label {
+    color: var(--gold);
+    font-size: medium;
+    /* transform: translateY(50px); */
+}
+
+.pageTitle {
+    color: var(--gold);
+    margin: 3% 36% -0.5% 36%;
+    background-color: var(--navy);
+    padding: 1% 1% 1% 2.75%;
+    border: 3px dashed var(--gold);
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import M from 'materialize-css';
+import './css/Login.css';
 
 const Signup = () => {
     const history = useHistory();
@@ -79,25 +80,24 @@ const Signup = () => {
 
     return (
         <Container>
-            <Card>
+            <Card className="mainCard">
                 <Card.Body>
-                    <Card.Title>BootCamp Hub</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Login</Card.Subtitle>
+                    <Card.Title style={{color:"#ffce3f",marginBottom:"1%",float:"right"}}><h4>InstaCram Registration</h4></Card.Title>
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicText">
-                                <Form.Label>Name</Form.Label>
-                                <Form.Control type="text" value={name} onChange={(e)=>setName(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(90px"}}>Name</Form.Label>
+                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="text" value={name} onChange={(e)=>setName(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(80px"}}>Email address</Form.Label>
+                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
+                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
-                            <div className="mb-3">
+                            <div className="mb-3" style={{marginTop:"7%"}}>
                                 <Form.File id="formcheck-api-regular">
                                     <Form.File.Label>Upload Picture</Form.File.Label>
                                     <Form.File.Input type="file" 
@@ -109,7 +109,7 @@ const Signup = () => {
                             </Button>
                         </Form>
                     </Card.Text>
-                    <h5>
+                    <h5 className="alt" >
                         <Link to="/login">Already have an account?</Link>
                     </h5>
                     {/* <Card.Link href="#">Card Link</Card.Link> */}

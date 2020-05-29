@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../../App';
 import { Container, Button, Form } from 'react-bootstrap';
+import './css/Profile.css';
 
 const Profile = () => {
 
@@ -65,21 +66,20 @@ const Profile = () => {
     }
 
     return (
-        <div style={{maxWidth:"80%",margin:"2% auto"}}>
+        <div className="personalArea" style={{maxWidth:"80%",margin:"2% auto"}}>
             <Container>
-                <div className="personalArea"
-                     style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid black"}}>
+                <div 
+                     style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid #ffce3f"}}>
                     <div className="profilePic">
                         <img src={state ? state.photo : "Loading..."}
                              alt="profilePic" 
-                             style={{width:"205px",height:"145px",borderRadius:"50%"}}
                         />
                     </div>
                     <div>
                         <div className="mb-3">
                             <Form.File id="formcheck-api-regular">
                                 <Form.File.Label>Update Photo</Form.File.Label>
-                                <Form.File.Input type="file" 
+                                <Form.File.Input  type="file" 
                                     onChange={(e)=>updatePhoto(e.target.files[0])}/>
                             </Form.File>
                         </div>
@@ -87,7 +87,7 @@ const Profile = () => {
                     <div className="profileName">
                         <h4>{state ? state.name : "Loading.."}</h4>
                         <h5>{state ? state.email : "Loading.."}</h5>
-                        <div style={{display:"flex",justifyContent:"space-between",width:"115%"}}>
+                        <div className="profileStats" style={{display:"flex",justifyContent:"space-between",width:"115%"}}>
                             <h6>{mypics.length} Posts</h6>
                             <h6>{state ? state.followers.length : "Loading.."} Followers</h6>
                             <h6>Following {state? state.following.length : "Loading.."}</h6>
@@ -105,7 +105,6 @@ const Profile = () => {
                                     key={item._id}
                                     src={item.photo}
                                     alt={item.title} 
-                                    style={{width:"155px",height:"95px",borderRadius:"50%"}}
                                 />
                             )
                         })
