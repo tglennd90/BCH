@@ -57,11 +57,11 @@ const Login = () => {
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{transform:"translateY(80px"}}>Email address</Form.Label>
+                                <Form.Label style={{transform:"translateY(80px",color:"#F4F5F0"}}>Email address</Form.Label>
                                 <Form.Control style={{borderBottom:"2px solid #CD212A", color:"#F4F5F0"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
+                                <Form.Label style={{transform:"translateY(80px",color:"#F4F5F0"}}>Password</Form.Label>
                                 <Form.Control style={{borderBottom:"2px solid #CD212A", color:"#F4F5F0"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
                             <Button onClick={()=>PostData()}>

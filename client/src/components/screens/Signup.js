@@ -86,18 +86,18 @@ const Signup = () => {
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicText">
-                                <Form.Label style={{transform:"translateY(90px"}}>Name</Form.Label>
+                                <Form.Label style={{transform:"translateY(90px",color:"#F4F5F0"}}>Name</Form.Label>
                                 <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}} type="text" value={name} onChange={(e)=>setName(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{transform:"translateY(80px"}}>Email address</Form.Label>
+                                <Form.Label style={{transform:"translateY(80px",color:"#F4F5F0"}}>Email address</Form.Label>
                                 <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
+                                <Form.Label style={{transform:"translateY(80px", color:"#F4F5F0"}}>Password</Form.Label>
                                 <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
-                            <div className="mb-3" style={{marginTop:"7%"}}>
+                            <div className="mb-3" style={{marginTop:"7%",color:"#F4F5F0"}}>
                                 <Form.File id="formcheck-api-regular">
                                     <Form.File.Label>Upload Picture</Form.File.Label>
                                     <Form.File.Input type="file" 
