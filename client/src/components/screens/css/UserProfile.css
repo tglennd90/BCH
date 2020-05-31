@@ -7,18 +7,18 @@
     --r: #CD212A;
 }
 
-.personalArea {
+.userProfileArea {
     background-color: var(--r);
     border: 5px solid var(--w);
     padding: 2%;
     color: var(--w);
 }
 
-.profileName h4 {
+.userProfileName h4 {
     font-style: italic;
 }
 
-.profilePic img {
+.userProfilePic img {
     width: 205px;
     height: 165px;
     border-radius: 50%;
@@ -27,12 +27,14 @@
     transform: scale(1.1);
 }
 
-.galleryArea img {
+.userGalleryArea img {
     width: 155px;
     height: 115px;
     border: 2.5px solid var(--g);
     margin-bottom: 2%;
     transform: scale(1.1);
+    display: flex;
+    flex-direction: row;
 }
 
 .profileStats h6 {

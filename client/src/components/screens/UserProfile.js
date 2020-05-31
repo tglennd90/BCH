@@ -3,6 +3,7 @@ import { UserContext } from '../../App';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import './css/UserProfile.css'
 
 const UserProfile = () => {
 
@@ -105,17 +106,17 @@ const UserProfile = () => {
     return (
         <>
         {userProfile ? 
-        <div style={{maxWidth:"80%",margin:"2% auto"}}>
+        <div className="userProfileArea" style={{maxWidth:"80%",margin:"2% auto"}}>
         <Container>
-            <div className="personalArea"
-                 style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid black"}}>
-                <div className="profilePic">
+            <div 
+                 style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid #F4F5F0"}}>
+                <div className="userProfilePic">
                     <img src={userProfile.user.photo}
                          alt="profilePic" 
                          style={{width:"205px",height:"145px",borderRadius:"50%"}}
                     />
                 </div>
-                <div className="profileName">
+                <div className="userProfileName">
                     <h4>{userProfile.user.name}</h4>
                     <h5>{userProfile.user.email}</h5>
                     <div style={{display:"flex",justifyContent:"space-between",width:"115%"}}>
@@ -135,13 +136,13 @@ const UserProfile = () => {
                         </Button>
                     }
                     
-                    
                 </div>
             </div>
-        
-            <div className="galleryArea"
+                    
+            <div className="userGalleryArea"
                  style={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}}
             >
+                <p>My Posts</p>
                 {
                     userProfile.posts.map(item => {
                         return (
@@ -155,6 +156,7 @@ const UserProfile = () => {
                     })
                             }
                         </div>
+        
                     </Container>
                 </div>
         : <h2>Loading...</h2>}

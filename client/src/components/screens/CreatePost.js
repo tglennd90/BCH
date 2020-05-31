@@ -63,20 +63,17 @@ const CreatePost = () => {
     return (
         <div>
             <Container>
-                <div className="pageTitle">
-                    <h1>Create a Post!</h1>
-                </div>
-                <Card className="mainCard">
+                <Card className="createPostCard">
                     <Container>
                     <Form>
                         <Form.Group style={{marginBottom:"3%"}}>
                         <Form.Label className="labelTitle" style={{transform:"translateY(80px)"}}>Title</Form.Label>
-                            <Form.Control type="text" size="lg" style={{backgroundColor:"#06304b",border:"none",borderBottom:"2px solid #ffce3f",color:"#ffce3f"}}
+                            <Form.Control type="text" size="lg" style={{backgroundColor:"#F4F5F0",border:"none",borderBottom:"2px solid #008C45",color:"#CD212A"}}
                                 value={title} onChange={(e)=>setTitle(e.target.value)} />
                         </Form.Group>
                         <Form.Group style={{marginBottom:"3%"}} >
                         <Form.Label style={{transform:"translateY(112px"}}>Details</Form.Label>
-                            <Form.Control  style={{backgroundColor:"#06304b",border:"none",borderBottom:"2px solid #ffce3f",color:"#ffce3f",resize:"none"}} as="textarea" rows="3"
+                            <Form.Control  style={{backgroundColor:"#F4F5F0",border:"none",borderBottom:"2px solid #008C45",color:"#CD212A",resize:"none"}} as="textarea" rows="3"
                                 value={body} onChange={(e)=>setBody(e.target.value)} />
                         </Form.Group>
                         <div className="mb-3" style={{marginTop:"7%"}}>

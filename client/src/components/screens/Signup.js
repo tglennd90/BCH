@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import M from 'materialize-css';
-import './css/Login.css';
+import './css/Signup.css';
 
 const Signup = () => {
     const history = useHistory();
@@ -80,22 +80,22 @@ const Signup = () => {
 
     return (
         <Container>
-            <Card className="mainCard">
+            <Card className="signupCard">
                 <Card.Body>
-                    <Card.Title style={{color:"#ffce3f",marginBottom:"1%",float:"right"}}><h4>InstaCram Registration</h4></Card.Title>
+                    <Card.Title style={{marginBottom:"1%",float:"right"}}><h4>Margatsni Registration</h4></Card.Title>
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicText">
                                 <Form.Label style={{transform:"translateY(90px"}}>Name</Form.Label>
-                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="text" value={name} onChange={(e)=>setName(e.target.value)} />
+                                <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}} type="text" value={name} onChange={(e)=>setName(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label style={{transform:"translateY(80px"}}>Email address</Form.Label>
-                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                                <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
-                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                                <Form.Control style={{color:"#F4F5F0",borderBottom:"2px solid #CD212A"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
                             <div className="mb-3" style={{marginTop:"7%"}}>
                                 <Form.File id="formcheck-api-regular">
@@ -109,8 +109,8 @@ const Signup = () => {
                             </Button>
                         </Form>
                     </Card.Text>
-                    <h5 className="alt" >
-                        <Link to="/login">Already have an account?</Link>
+                    <h5 className="alt2" >
+                        <Link to="/login">Already registered?</Link>
                     </h5>
                     {/* <Card.Link href="#">Card Link</Card.Link> */}
                     {/* <Card.Link href="#">Another Link</Card.Link> */}

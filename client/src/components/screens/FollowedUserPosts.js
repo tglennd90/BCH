@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../App'
 import { Container, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './css/Followed.css';
 
 const FollowedHome = () => {
 
@@ -151,27 +152,28 @@ const FollowedHome = () => {
                 data.map(item => {
                     return(
                         <Container key={item._id}>
-                            <Card>
-                                <Card.Header>
-                                    <Link to={item.postedBy._id !== state.id ? "/profile/"+item.postedBy._id : "/profile" }>{item.postedBy.name}</Link>
+                            <Card className="homeCard">
+                                <Card.Header className="cardHeader">
+                                <div>Posted By: <Link to={item.postedBy._id !== state.id ? "/profile/"+item.postedBy._id : "/profile" }>{item.postedBy.name}</Link></div>
                                     {item.postedBy._id == state._id && <i className="fas fa-trash-alt fa-lg" style={{float:"right"}} onClick={()=>deletePost(item._id)}></i>}
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Img src={item.photo} />
-                                    <i className="fas fa-heart fa-3x"></i>
+                                    {/* <i className="fas fa-heart fa-3x"></i> */}
                                     {item.likes.includes(state._id)
-                                    ?<i className="fas fa-thumbs-down fa-3x" onClick={()=>unlikePost(item._id)}></i>
+                                    ?<i className="fas fa-thumbs-down fa-3x" style={{color:"#CD212A"}} onClick={()=>unlikePost(item._id)}></i>
                                     :<i className="fas fa-thumbs-up fa-3x" onClick={()=>likePost(item._id)}></i>
                                     }
                                     <Card.Title>{item.likes.length} Like(s)</Card.Title>
                                     <Card.Text>
-                                        {item.title}
+                                        Title: {item.title}
                                         <br></br>
-                                        {item.body}
+                                        Description: {item.body}
                                         {
                                             item.comments.map(record=>{
                                                 return(
                                                     <div key={record._id}>
+                                                        Comments:
                                                     <h6><span>{record.postedBy.name}:</span> {record.text}</h6>
                                                     {/* {record.postedBy._id == state._id && <i className="fas fa-trash-alt fa-lg" 
                                                     onClick={()=>deleteComment(record._id)}></i>} */}
@@ -185,8 +187,8 @@ const FollowedHome = () => {
                                             makeComment(e.target[0].value,item._id)    
                                     }}>
                                         <Form.Group controlId="formBasicText">
-                                            <Form.Label>Comment Here</Form.Label>
-                                            <Form.Control type="text" />
+                                            <Form.Label style={{transform:"translateY(80px)"}}>Comment Here</Form.Label>
+                                            <Form.Control style={{borderBottom:"2px solid #008C45",color:"#CD212A"}} type="text" />
                                         </Form.Group>
                                     </Form>
                                 </Card.Body>

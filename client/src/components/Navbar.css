@@ -1,16 +1,20 @@
 :root {
-    --navy: #06304b;
-    --gold: #ffce3f; 
+    /* --navy: #06304b; */
+    /* --gold: #ffce3f;  */
+
+    --g: #008C45;
+    --w: #F4F5F0;
+    --r: #CD212A;
 }
 
 .navBar {
-    background-color: var(--navy);
+    background-color: var(--w);
     position: relative;
-    border-bottom: 5px solid var(--gold);
+    border-bottom: 5px solid var(--r);
 }
 
 .navBar a {
-    color: var(--gold);
+    color: var(--g);
     margin-right: 25px;
 }
 
@@ -29,16 +33,16 @@
 }
 
 .navBtn {
-    background-color: var(--navy);
-    border: 1.5px solid var(--gold);
+    background-color: var(--r);
+    border: 1.5px solid var(--w);
     text-transform: inherit;
     float: right;
     margin-top: 4%;
-    color: var(--gold);
+    color: var(--w);
 }
 
 .navBtn:hover {
-    background-color: var(--gold);
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
+    background-color: var(--w);
+    border: 1.5px solid var(--r);
+    color: var(--r);
 }

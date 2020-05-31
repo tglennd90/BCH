@@ -69,7 +69,7 @@ const Profile = () => {
         <div className="personalArea" style={{maxWidth:"80%",margin:"2% auto"}}>
             <Container>
                 <div 
-                     style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid #ffce3f"}}>
+                     style={{display:"flex",justifyContent:"space-around",margin:"20px 0px",paddingBottom:"2%",paddingTop:"2%",borderBottom:"2px solid #F4F5F0"}}>
                     <div className="profilePic">
                         <img src={state ? state.photo : "Loading..."}
                              alt="profilePic" 
@@ -98,6 +98,7 @@ const Profile = () => {
                 <div className="galleryArea"
                      style={{display:"flex",flexWrap:"wrap",justifyContent:"space-around"}}
                 >
+                    <p>My Posts</p>
                     {
                         mypics.map(item => {
                             return (

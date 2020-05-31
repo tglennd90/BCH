@@ -1,43 +1,39 @@
 :root {
-    --navy: #06304b;
-    --gold: #ffce3f; 
+    /* --navy: #06304b; */
+    /* --gold: #ffce3f;  */
+
+    --g: #008C45;
+    --w: #F4F5F0;
+    --r: #CD212A;
 }
 
-.mainCard {
-    background-color: var(--navy);
-    border: 5px solid var(--gold);
+.createPostCard {
+    background-color: var(--w);
+    border: 5px solid var(--r);
     padding: 2%;
     margin-top: 5%;
 }
 
-.mainCard Button {
-    background-color: var(--navy);
-    border: 1.5px solid var(--gold);
+.createPostCard Button {
+    background-color: var(--w);
+    border: 1.5px solid var(--r);
     text-transform: inherit;
     float: right;
-    color: var(--gold);
+    color: var(--r);
 }
 
-.mainCard Button:hover {
-    background-color: var(--gold);
-    border: 1.5px solid var(--navy);
-    color: var(--navy);
+.createPostCard Button:hover {
+    background-color: var(--r);
+    border: 1.5px solid var(--w);
+    color: var(--w);
 }
 
 Form {
-    color: var(--gold);
+    color: var(--g);
 }
 
 Form Label {
-    color: var(--gold);
+    color: var(--g);
     font-size: medium;
     /* transform: translateY(50px); */
-}
-
-.pageTitle {
-    color: var(--gold);
-    margin: 3% 36% -0.5% 36%;
-    background-color: var(--navy);
-    padding: 1% 1% 1% 2.75%;
-    border: 3px dashed var(--gold);
 }

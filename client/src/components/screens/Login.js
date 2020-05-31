@@ -51,18 +51,18 @@ const Login = () => {
 
     return (
         <Container>
-            <Card className="mainCard">
+            <Card className="loginCard">
                 <Card.Body>
-                    <Card.Title style={{color:"#ffce3f",marginBottom:"1%",float:"right"}}><h4>InstaCram Login</h4></Card.Title>
+                    <Card.Title style={{marginBottom:"1%",marginTop:"-3%",float:"right"}}><h4>Margatsni Login</h4></Card.Title>
                     <Card.Text>
                         <Form>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{transform:"translateY(90px"}}>Email address</Form.Label>
-                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                                <Form.Label style={{transform:"translateY(80px"}}>Email address</Form.Label>
+                                <Form.Control style={{borderBottom:"2px solid #CD212A", color:"#F4F5F0"}} type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label style={{transform:"translateY(80px"}}>Password</Form.Label>
-                                <Form.Control style={{color:"#ffce3f",borderBottom:"2px solid #ffce3f"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                                <Form.Control style={{borderBottom:"2px solid #CD212A", color:"#F4F5F0"}}type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                             </Form.Group>
                             <Button onClick={()=>PostData()}>
                                 Log-In
@@ -70,7 +70,7 @@ const Login = () => {
                         </Form>
                     </Card.Text>
                     <h5 className="alt">
-                        <Link to="/signup">Don't have an account yet?</Link>
+                        <Link to="/signup">Not registered yet?</Link>
                     </h5>
                     {/* <Card.Link href="#">Card Link</Card.Link> */}
                     {/* <Card.Link href="#">Another Link</Card.Link> */}

@@ -1,0 +1,47 @@
+:root {
+    /* --navy: #06304b; */
+    /* --gold: #ffce3f;  */
+
+    --g: #008C45;
+    --w: #F4F5F0;
+    --r: #CD212A;
+}
+
+.homePage {
+    background-color: var(--w);
+    padding: 2%;
+    margin: 2% auto;
+    color: var(--g);
+}
+
+.homeCard {
+    border: 3px solid var(--r);
+    border-radius: 1%;
+}
+
+.cardHeader {
+    background-color: var(--r);
+    color: white;
+}
+
+.cardHeader a {
+    color: var(--w);
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.cardHeader i {
+    color: var(--w);
+}
+
+.homeCard img {
+    width: 100%;
+    height: 500px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 2%;
+}
+
+.homeCard i {
+    color: var(--g);
+}
