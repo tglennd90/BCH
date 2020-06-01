@@ -8,8 +8,11 @@ Project #3 - MERN App (Instagram Clone)
 ## Contributor(s)
 
 **Tatum Daily**
-[GitHub](https://github.com/tglennd90)
+
 *tgd9019@outlook.com*
+
+[GitHub](https://github.com/tglennd90)
+
 [LinkedIn](https://www.linkedin.com/in/tatum-daily-7bab40194/)
 
 ---
@@ -21,7 +24,6 @@ Project #3 - MERN App (Instagram Clone)
 * Cloudinary
 * bcrypt
 * Bootstrap / Materialize
-* concurrently
 
 ---
 
